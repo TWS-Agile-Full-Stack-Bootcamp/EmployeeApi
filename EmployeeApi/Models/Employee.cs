@@ -20,5 +20,19 @@ namespace EmployeeApi.Models
         public string Name { get => name; }
         public int Age { get => age; }
         public string Gender { get => gender; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Employee employee &&
+                   id == employee.id &&
+                   name == employee.name &&
+                   age == employee.age &&
+                   gender == employee.gender;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(id, name, age, gender);
+        }
     }
 }

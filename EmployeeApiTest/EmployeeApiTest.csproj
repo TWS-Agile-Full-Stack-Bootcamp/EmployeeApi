@@ -21,9 +21,4 @@
   <ItemGroup>
     <Folder Include="Controllers\" />
   </ItemGroup>
-  <ItemGroup>
-    <None Update="result.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
 </Project>
