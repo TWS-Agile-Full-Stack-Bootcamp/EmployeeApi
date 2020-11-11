@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EmployeeApi;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using Newtonsoft.Json;
 using Xunit;
 
 namespace EmployeeApiTest.Controllers
@@ -25,7 +26,8 @@ namespace EmployeeApiTest.Controllers
             var responseString = await response.Content.ReadAsStringAsync();
 
             // then
-            Assert.Equal(File.ReadAllText("result.json"), responseString);
+            string result = JsonConvert.SerializeObject(JsonConvert.DeserializeObject(File.ReadAllText("result.json")), Formatting.None);
+            Assert.Equal(result, responseString);
         }
     }
 }
